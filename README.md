@@ -1,6 +1,6 @@
 # Flask-Admin-adminLTE
 ## 简介
-git，是一个Python环境下的WEB后台管理系统脚手架，目标是用极少量的代码，快速构建小型WEB应用。
+Flask-Admin-adminLTE集成了Flask-Admin和adminLTE，是一个Python环境下的WEB后台管理系统脚手架，目标是用极少量的代码，快速构建小型WEB应用。
 
 ## 系统截图
 - 列表界面
