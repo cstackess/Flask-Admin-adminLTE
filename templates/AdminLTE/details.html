@@ -1,0 +1,53 @@
+{% extends 'admin/model/details.html' %}
+
+{% block body %}
+    <div class="box box-primary">
+        <div class="box-header">
+            {% block header_text %}
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <div class="box-title">{{ _gettext('View Record') + ' #' + request.args.get('id') }}</div>
+            {% endblock %}
+
+            {% block details_search %}
+                <div class="input-group fa_filter_container col-lg-6">
+                    <span class="input-group-addon">{{ _gettext('Filter') }}</span>
+                    <input id="fa_filter" type="text" class="form-control">
+                </div>
+            {% endblock %}
+        </div>
+
+        <div class="box-body">
+            {% block details_table %}
+                <table class="table table-bordered searchable">
+                    {% for c, name in details_columns %}
+                        <tr>
+                            <td>
+                                <b>{{ name }}</b>
+                                {% if admin_view.column_descriptions.get(c) %}
+                                    <span class="fa fa-question-circle glyphicon glyphicon-question-sign"
+                                          title="{{ admin_view.column_descriptions[c] }}"
+                                          href="javascript:void(0)" data-role="tooltip"
+                                    ></span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                {{ get_value(model, c) }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% endblock %}
+        </div>
+        <div class="box-footer">
+            {% if admin_view.can_edit %}
+                <a class="btn btn-primary" href="{{ get_url('.edit_view', id=request.args.get('id'), url=return_url) }}"
+                   role='button'
+                   data-dismiss="modal">{{ _gettext('Edit') }}</a>
+            {% endif %}
+            <a class="btn btn-danger" href="javascript:history.go(-1)" role='button'
+               data-dismiss="modal">{{ _gettext('返回') }}</a>
+        </div>
+    </div>
+{% endblock %}
+

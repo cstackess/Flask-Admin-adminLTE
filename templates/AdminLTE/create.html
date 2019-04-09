@@ -1,0 +1,19 @@
+{% extends 'admin/model/create.html' %}
+
+{% block body %}
+
+    <div class="box box-primary">
+{#        <div class="box-header">#}
+{#            {% block header_text %}#}
+                {#                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>#}
+                {#                </button>#}
+{#                <div class="box-title">{{ _gettext('Create Record') }}</div>#}
+{#            {% endblock %}#}
+{#        </div>#}
+        <div class="box-body">
+            {% block create_form %}
+                {{ lib.render_form(form, return_url, extra(), form_opts) }}
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}

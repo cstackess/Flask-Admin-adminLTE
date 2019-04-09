@@ -1,0 +1,80 @@
+{% import 'admin/layout.html' as layout with context -%}
+{% import 'admin/static.html' as admin_static with context %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% if admin_view.category %}{{ admin_view.category }} - {% endif %}{{ admin_view.name }} -
+        {{ admin_view.admin.name }}{% endblock %}</title>
+    {% block head_meta %}
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+    {% endblock %}
+    {% block head_css %}
+        <!--Flask-Admin-->
+        <link href="{{ admin_static.url(filename='bootstrap/bootstrap3/css/bootstrap.min.css', v='3.3.5') }}"
+              rel="stylesheet">
+        <link href="{{ admin_static.url(filename='bootstrap/bootstrap3/css/bootstrap-theme.min.css', v='3.3.5') }}"
+              rel="stylesheet">
+        <link href="{{ admin_static.url(filename='admin/css/bootstrap3/admin.css', v='1.1.1') }}" rel="stylesheet">
+        <style>
+            body {
+                padding-top: 4px;
+            }
+        </style>
+        <!--AdminLTE-->
+        {#        <link rel="stylesheet" href="{{ url_for('static', filename='plugins/bootstrap/css/bootstrap.min.css') }}">#}
+        <link rel="stylesheet" href="{{ url_for('static', filename='plugins/font-awesome/css/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='plugins/ionicons/css/ionicons.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='plugins/bootstrap-slider/slider.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='plugins/pace/pace.min.css') }}">
+        <link rel="stylesheet"
+              href="{{ url_for('static', filename='plugins/bootstrap-switch/bootstrap-switch.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='plugins/select2/select2.min.css') }}">
+        {% block css %}{% endblock %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='plugins/adminlte/css/AdminLTE.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='plugins/adminlte/css/skins/skin-blue.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+
+    {% endblock %}
+    <!--[if lt IE 9]>
+    <script src="plugins/html5shiv.min.js"></script>
+    <script src="plugins/respond.min.js"></script>
+    <![endif]-->
+    {% block head %}
+    {% endblock %}
+    {% block head_tail %}
+    {% endblock %}
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+{% block page_body %}
+{% endblock %}
+{% block tail_js %}
+    <!--Flask-Admin-->
+    <script src="{{ admin_static.url(filename='vendor/jquery.min.js', v='2.1.4') }}" type="text/javascript"></script>
+    <script src="{{ admin_static.url(filename='bootstrap/bootstrap3/js/bootstrap.min.js', v='3.3.5') }}"
+            type="text/javascript"></script>
+    <script src="{{ admin_static.url(filename='vendor/moment.min.js', v='2.9.0') }}" type="text/javascript"></script>
+    <script src="{{ admin_static.url(filename='vendor/select2/select2.min.js', v='3.5.2') }}"
+            type="text/javascript"></script>
+
+    <!--AdminLTE-->
+    {#    <script src="{{ url_for('static', filename='plugins/jQuery/jquery-2.2.3.min.js') }}"></script>#}
+    {#    <script src="{{ url_for('static', filename='plugins/bootstrap/js/bootstrap.min.js') }}"></script>#}
+    <script src="{{ url_for('static', filename='plugins/slimScroll/jquery.slimscroll.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='plugins/fastclick/fastclick.js') }}"></script>
+    <script src="{{ url_for('static', filename='plugins/bootstrap-slider/bootstrap-slider.js') }}"></script>
+    <script src="{{ url_for('static', filename='plugins/pace/pace.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='plugins/bootstrap-switch/bootstrap-switch.min.js') }}"></script>
+    {#    <script src="{{ url_for('static', filename='plugins/select2/select2.full.min.js') }}"></script>#}
+    <script src="{{ url_for('static', filename='plugins/adminlte/js/app.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/global.js') }}"></script>
+{% endblock %}
+
+{% block tail %}
+{% endblock %}
+</body>
+</html>
+
